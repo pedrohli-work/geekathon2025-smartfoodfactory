@@ -1,0 +1,663 @@
+2025-09-17 21:02:22 | INFO     | __main__:55 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 21:02:22 | INFO     | __main__:63 | 🔧 Running ETL pipeline...
+2025-09-17 21:02:22 | DEBUG    | modules.etl:106 | Loaded table milk_production_base with shape (160, 7)
+2025-09-17 21:02:22 | DEBUG    | modules.etl:106 | Loaded table milk_inventory with shape (160, 10)
+2025-09-17 21:02:22 | DEBUG    | modules.etl:106 | Loaded table milk_sales with shape (1857, 8)
+2025-09-17 21:02:22 | DEBUG    | modules.etl:106 | Loaded table milk_factory with shape (130, 9)
+2025-09-17 21:02:22 | DEBUG    | modules.etl:106 | Loaded table milk_logistics with shape (588, 8)
+2025-09-17 21:02:22 | INFO     | modules.etl:150 | Loaded tables counts: production=160, inventory=160, sales=1857, factory=130, logistics=588
+2025-09-17 21:02:22 | INFO     | modules.etl:169 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-17 21:02:22 | WARNING  | modules.etl:181 | Sales table missing key columns; sales_curation will be empty.
+2025-09-17 21:02:22 | WARNING  | modules.etl:228 | No sales_daily data to build curated sales. Returning empty curated sales.
+2025-09-17 21:02:22 | INFO     | __main__:69 | Catalog ready: 160 rows (unique batches/products).
+2025-09-17 21:02:22 | WARNING  | __main__:72 | Sales curated is empty after ETL — forecasting may be skipped.
+2025-09-17 21:02:22 | INFO     | __main__:77 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 21:02:22 | WARNING  | modules.forecasting:201 | No curated sales provided for forecasting.
+2025-09-17 21:02:22 | WARNING  | __main__:81 | No forecast results generated.
+2025-09-17 21:02:22 | INFO     | __main__:89 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (0 rows).
+2025-09-17 21:02:22 | INFO     | __main__:91 | ✅ Pipeline finished successfully.
+2025-09-17 21:14:10 | INFO     | __main__:55 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 21:14:10 | INFO     | __main__:63 | 🔧 Running ETL pipeline...
+2025-09-17 21:14:10 | INFO     | milk_factory:253 | Loaded tables counts: production=160, inventory=160, sales=1857, factory=130, logistics=588
+2025-09-17 21:14:10 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-17 21:14:11 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1857 rows)
+2025-09-17 21:14:11 | INFO     | __main__:69 | Catalog ready: 160 rows (unique batches/products).
+2025-09-17 21:14:11 | INFO     | __main__:74 | Sales curated ready: 1857 rows.
+2025-09-17 21:14:11 | INFO     | __main__:77 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 21:14:19 | INFO     | modules.forecasting:309 | Forecasting completed. Inserted 20734 new forecast rows.
+2025-09-17 21:14:19 | INFO     | __main__:83 | Forecasting produced 20734 daily records.
+2025-09-17 21:14:19 | INFO     | __main__:89 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (20734 rows).
+2025-09-17 21:14:19 | INFO     | __main__:91 | ✅ Pipeline finished successfully.
+2025-09-17 21:50:42 | INFO     | __main__:60 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 21:50:42 | INFO     | __main__:67 | 🔧 Running ETL pipeline...
+2025-09-17 21:50:42 | INFO     | milk_factory:253 | Loaded tables counts: production=130, inventory=130, sales=1503, factory=130, logistics=588
+2025-09-17 21:50:42 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-17 21:50:42 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1503 rows)
+2025-09-17 21:50:42 | INFO     | __main__:73 | Catalog ready: 130 rows (unique batches/products).
+2025-09-17 21:50:42 | INFO     | __main__:78 | Sales curated ready: 1503 rows.
+2025-09-17 21:50:42 | INFO     | __main__:81 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 21:50:42 | INFO     | milk_factory:133 | 📈 Running product-level forecasting for 14 days...
+2025-09-17 21:53:00 | INFO     | __main__:60 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 21:53:00 | INFO     | __main__:67 | 🔧 Running ETL pipeline...
+2025-09-17 21:53:00 | INFO     | milk_factory:253 | Loaded tables counts: production=130, inventory=130, sales=1503, factory=130, logistics=588
+2025-09-17 21:53:01 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-17 21:53:01 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1503 rows)
+2025-09-17 21:53:01 | INFO     | __main__:73 | Catalog ready: 130 rows (unique batches/products).
+2025-09-17 21:53:01 | INFO     | __main__:78 | Sales curated ready: 1503 rows.
+2025-09-17 21:53:01 | INFO     | __main__:81 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 21:53:01 | INFO     | milk_factory:126 | 📈 Running product-level forecasting for 14 days...
+2025-09-17 21:53:01 | INFO     | milk_factory:217 | ✅ Forecasting completed. Inserted 2800 new forecast rows.
+2025-09-17 21:53:01 | INFO     | __main__:87 | Forecasting produced 2800 daily records.
+2025-09-17 21:53:01 | INFO     | __main__:93 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (2800 rows).
+2025-09-17 21:53:01 | INFO     | __main__:95 | ✅ Pipeline finished successfully.
+2025-09-17 23:33:34 | INFO     | __main__:60 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 23:33:34 | INFO     | __main__:67 | 🔧 Running ETL pipeline...
+2025-09-17 23:33:34 | INFO     | milk_factory:253 | Loaded tables counts: production=130, inventory=130, sales=1475, factory=130, logistics=562
+2025-09-17 23:33:34 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-17 23:33:34 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1475 rows)
+2025-09-17 23:33:34 | INFO     | __main__:73 | Catalog ready: 130 rows (unique batches/products).
+2025-09-17 23:33:34 | INFO     | __main__:78 | Sales curated ready: 1475 rows.
+2025-09-17 23:33:34 | INFO     | __main__:81 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 23:33:34 | INFO     | milk_factory:126 | 📈 Running product-level forecasting for 14 days...
+2025-09-17 23:33:35 | INFO     | milk_factory:217 | ✅ Forecasting completed. Inserted 2786 new forecast rows.
+2025-09-17 23:33:35 | INFO     | __main__:87 | Forecasting produced 2786 daily records.
+2025-09-17 23:33:35 | INFO     | __main__:93 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (2786 rows).
+2025-09-17 23:33:35 | INFO     | __main__:95 | ✅ Pipeline finished successfully.
+2025-09-17 23:58:56 | INFO     | __main__:60 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-17 23:58:56 | INFO     | __main__:67 | 🔧 Running ETL pipeline...
+2025-09-17 23:58:56 | INFO     | milk_factory:253 | Loaded tables counts: production=130, inventory=130, sales=1475, factory=130, logistics=562
+2025-09-17 23:58:56 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-17 23:58:56 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1475 rows)
+2025-09-17 23:58:56 | INFO     | __main__:73 | Catalog ready: 130 rows (unique batches/products).
+2025-09-17 23:58:56 | INFO     | __main__:78 | Sales curated ready: 1475 rows.
+2025-09-17 23:58:56 | INFO     | __main__:81 | 📈 Running incremental forecasting for 14 days...
+2025-09-17 23:58:56 | INFO     | milk_factory:126 | 📈 Running product-level forecasting for 14 days...
+2025-09-17 23:58:57 | INFO     | milk_factory:217 | ✅ Forecasting completed. Inserted 2786 new forecast rows.
+2025-09-17 23:58:57 | INFO     | __main__:87 | Forecasting produced 2786 daily records.
+2025-09-17 23:58:57 | INFO     | __main__:93 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (2786 rows).
+2025-09-17 23:58:57 | INFO     | __main__:95 | ✅ Pipeline finished successfully.
+2025-09-18 10:47:11 | INFO     | __main__:63 | Python executable: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Scripts\python.exe
+2025-09-18 10:47:11 | INFO     | __main__:66 | Prophet loaded from: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\prophet\__init__.py
+2025-09-18 10:47:11 | INFO     | __main__:71 |  Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:47:11 | INFO     | __main__:78 |  Running ETL pipeline...
+2025-09-18 10:47:11 | INFO     | milk_factory:253 | Loaded tables counts: production=160, inventory=160, sales=1827, factory=160, logistics=692
+2025-09-18 10:47:11 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 10:47:11 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1827 rows)
+2025-09-18 10:47:11 | INFO     | __main__:84 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 10:47:11 | INFO     | __main__:89 | Sales curated ready: 1827 rows.
+2025-09-18 10:47:11 | INFO     | __main__:92 |  Running incremental forecasting for 14 days...
+2025-09-18 10:47:11 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:47:12 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 2786 new forecast rows.
+2025-09-18 10:47:12 | INFO     | __main__:98 | Forecasting produced 2786 daily records.
+2025-09-18 10:47:12 | INFO     | __main__:104 |  Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (2786 rows).
+2025-09-18 10:47:12 | INFO     | __main__:106 |  Pipeline finished successfully.
+2025-09-18 10:47:33 | INFO     | __main__:63 | Python executable: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Scripts\python.exe
+2025-09-18 10:47:33 | INFO     | __main__:66 | Prophet loaded from: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\prophet\__init__.py
+2025-09-18 10:47:33 | INFO     | __main__:71 |  Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:47:33 | INFO     | __main__:78 |  Running ETL pipeline...
+2025-09-18 10:47:33 | INFO     | milk_factory:253 | Loaded tables counts: production=160, inventory=160, sales=1827, factory=160, logistics=692
+2025-09-18 10:47:33 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 10:47:33 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1827 rows)
+2025-09-18 10:47:33 | INFO     | __main__:84 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 10:47:33 | INFO     | __main__:89 | Sales curated ready: 1827 rows.
+2025-09-18 10:47:33 | INFO     | __main__:92 |  Running incremental forecasting for 14 days...
+2025-09-18 10:47:33 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:47:33 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 0 new forecast rows.
+2025-09-18 10:47:33 | WARNING  | __main__:96 | No forecast results generated.
+2025-09-18 10:47:33 | INFO     | __main__:104 |  Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (0 rows).
+2025-09-18 10:47:33 | INFO     | __main__:106 |  Pipeline finished successfully.
+2025-09-18 10:47:44 | INFO     | __main__:63 | Python executable: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Scripts\python.exe
+2025-09-18 10:47:44 | INFO     | __main__:66 | Prophet loaded from: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\prophet\__init__.py
+2025-09-18 10:47:44 | INFO     | __main__:71 |  Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:47:44 | INFO     | __main__:78 |  Running ETL pipeline...
+2025-09-18 10:47:44 | INFO     | milk_factory:253 | Loaded tables counts: production=160, inventory=160, sales=1827, factory=160, logistics=692
+2025-09-18 10:47:44 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 10:47:44 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1827 rows)
+2025-09-18 10:47:44 | INFO     | __main__:84 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 10:47:44 | INFO     | __main__:89 | Sales curated ready: 1827 rows.
+2025-09-18 10:47:44 | INFO     | __main__:92 |  Running incremental forecasting for 14 days...
+2025-09-18 10:47:44 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:47:44 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 0 new forecast rows.
+2025-09-18 10:47:44 | WARNING  | __main__:96 | No forecast results generated.
+2025-09-18 10:47:44 | INFO     | __main__:104 |  Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (0 rows).
+2025-09-18 10:47:44 | INFO     | __main__:106 |  Pipeline finished successfully.
+2025-09-18 10:48:04 | INFO     | __main__:63 | Python executable: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Scripts\python.exe
+2025-09-18 10:48:04 | INFO     | __main__:66 | Prophet loaded from: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\prophet\__init__.py
+2025-09-18 10:48:04 | INFO     | __main__:71 |  Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:48:04 | INFO     | __main__:78 |  Running ETL pipeline...
+2025-09-18 10:48:04 | INFO     | milk_factory:253 | Loaded tables counts: production=160, inventory=160, sales=1827, factory=160, logistics=692
+2025-09-18 10:48:04 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 10:48:04 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1827 rows)
+2025-09-18 10:48:04 | INFO     | __main__:84 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 10:48:04 | INFO     | __main__:89 | Sales curated ready: 1827 rows.
+2025-09-18 10:48:04 | INFO     | __main__:92 |  Running incremental forecasting for 14 days...
+2025-09-18 10:48:04 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:48:04 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 0 new forecast rows.
+2025-09-18 10:48:04 | WARNING  | __main__:96 | No forecast results generated.
+2025-09-18 10:48:04 | INFO     | __main__:104 |  Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (0 rows).
+2025-09-18 10:48:04 | INFO     | __main__:106 |  Pipeline finished successfully.
+2025-09-18 10:50:19 | INFO     | __main__:63 | Python executable: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Scripts\python.exe
+2025-09-18 10:50:19 | INFO     | __main__:66 | Prophet loaded from: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\prophet\__init__.py
+2025-09-18 10:50:19 | INFO     | __main__:71 |  Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:50:19 | INFO     | __main__:78 |  Running ETL pipeline...
+2025-09-18 10:50:19 | INFO     | milk_factory:253 | Loaded tables counts: production=190, inventory=190, sales=2179, factory=190, logistics=822
+2025-09-18 10:50:19 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (190 rows)
+2025-09-18 10:50:19 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (2179 rows)
+2025-09-18 10:50:19 | INFO     | __main__:84 | Catalog ready: 190 rows (unique batches/products).
+2025-09-18 10:50:19 | INFO     | __main__:89 | Sales curated ready: 2179 rows.
+2025-09-18 10:50:19 | INFO     | __main__:92 |  Running incremental forecasting for 14 days...
+2025-09-18 10:50:19 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:50:20 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 903 new forecast rows.
+2025-09-18 10:50:20 | INFO     | __main__:98 | Forecasting produced 903 daily records.
+2025-09-18 10:50:20 | INFO     | __main__:104 |  Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (903 rows).
+2025-09-18 10:50:20 | INFO     | __main__:106 |  Pipeline finished successfully.
+2025-09-18 10:51:34 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 10:51:34 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 10:51:34 | INFO     | milk_factory:253 | Loaded tables counts: production=130, inventory=130, sales=1475, factory=130, logistics=562
+2025-09-18 10:51:34 | INFO     | milk_factory:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-18 10:51:35 | INFO     | milk_factory:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1475 rows)
+2025-09-18 10:51:35 | INFO     | __main__:116 | Catalog ready: 130 rows (unique batches/products).
+2025-09-18 10:51:35 | INFO     | __main__:121 | Sales curated ready: 1475 rows.
+2025-09-18 10:51:35 | INFO     | __main__:124 | 📈 Running incremental forecasting for 14 days...
+2025-09-18 10:51:35 | INFO     | milk_factory:125 |  Running product-level forecasting for 14 days...
+2025-09-18 10:51:35 | INFO     | milk_factory:216 |  Forecasting completed. Inserted 2786 new forecast rows.
+2025-09-18 10:51:35 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (2786 rows).
+2025-09-18 10:51:35 | INFO     | __main__:138 | ✅ Pipeline finished successfully.
+2025-09-18 11:20:21 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 11:20:21 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 11:20:21 | INFO     | utils.logger:253 | Loaded tables counts: production=130, inventory=130, sales=1536, factory=130, logistics=592
+2025-09-18 11:20:21 | INFO     | utils.logger:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (130 rows)
+2025-09-18 11:20:21 | INFO     | utils.logger:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1536 rows)
+2025-09-18 11:20:21 | INFO     | __main__:116 | Catalog ready: 130 rows (unique batches/products).
+2025-09-18 11:20:21 | INFO     | __main__:121 | Sales curated ready: 1536 rows.
+2025-09-18 11:20:21 | INFO     | __main__:124 | 📈 Running incremental forecasting for 14 days...
+2025-09-18 11:20:21 | INFO     | utils.logger:125 |  Running product-level forecasting for 14 days...
+2025-09-18 11:20:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:22 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:22 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:22 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:23 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:24 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:25 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:25 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:25 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:20:25 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:20:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:20:26 | INFO     | utils.logger:216 |  Forecasting completed. Inserted 700 new forecast rows.
+2025-09-18 11:20:26 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (700 rows).
+2025-09-18 11:20:26 | INFO     | __main__:138 | ✅ Pipeline finished successfully.
+2025-09-18 11:25:34 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 11:25:34 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 11:25:34 | INFO     | utils.logger:253 | Loaded tables counts: production=160, inventory=160, sales=1870, factory=160, logistics=728
+2025-09-18 11:25:35 | INFO     | utils.logger:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 11:25:35 | INFO     | utils.logger:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1870 rows)
+2025-09-18 11:25:35 | INFO     | __main__:116 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 11:25:35 | INFO     | __main__:121 | Sales curated ready: 1870 rows.
+2025-09-18 11:25:35 | INFO     | __main__:124 | 📈 Running incremental forecasting for 14 days...
+2025-09-18 11:25:35 | INFO     | utils.logger:125 |  Running product-level forecasting for 14 days...
+2025-09-18 11:25:35 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:35 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:35 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:35 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:35 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:35 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:36 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:36 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:36 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:36 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:36 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:36 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:37 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:37 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:37 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:37 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:37 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:37 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:37 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:38 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:38 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:38 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:38 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:38 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:38 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:39 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:39 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:39 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:39 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:39 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:40 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:40 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:40 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:40 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:40 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:41 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:41 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:41 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:41 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:41 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:41 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:41 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:41 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:41 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:25:41 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:25:41 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:25:42 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:25:42 | INFO     | utils.logger:216 |  Forecasting completed. Inserted 350 new forecast rows.
+2025-09-18 11:25:42 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (350 rows).
+2025-09-18 11:25:42 | INFO     | __main__:138 | ✅ Pipeline finished successfully.
+2025-09-18 11:39:12 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 11:39:12 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 11:39:12 | INFO     | utils.logger:253 | Loaded tables counts: production=100, inventory=100, sales=1202, factory=100, logistics=456
+2025-09-18 11:39:12 | INFO     | utils.logger:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-18 11:39:12 | INFO     | utils.logger:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1202 rows)
+2025-09-18 11:39:12 | INFO     | __main__:116 | Catalog ready: 100 rows (unique batches/products).
+2025-09-18 11:39:12 | INFO     | __main__:121 | Sales curated ready: 1202 rows.
+2025-09-18 11:39:12 | INFO     | __main__:124 | 📈 Running incremental forecasting for 30 days...
+2025-09-18 11:39:12 | INFO     | utils.logger:125 |  Running product-level forecasting for 30 days...
+2025-09-18 11:39:12 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:12 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:39:12 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:13 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:13 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:13 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:13 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:13 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:13 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:13 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:13 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:13 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:14 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:39:14 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:39:14 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:39:14 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:39:14 | INFO     | utils.logger:216 |  Forecasting completed. Inserted 1500 new forecast rows.
+2025-09-18 11:39:14 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (1500 rows).
+2025-09-18 11:39:14 | INFO     | __main__:138 | ✅ Pipeline finished successfully.
+2025-09-18 11:41:14 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 11:41:14 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 11:41:14 | INFO     | utils.logger:253 | Loaded tables counts: production=160, inventory=160, sales=1932, factory=160, logistics=724
+2025-09-18 11:41:14 | INFO     | utils.logger:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (160 rows)
+2025-09-18 11:41:14 | INFO     | utils.logger:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (1932 rows)
+2025-09-18 11:41:14 | INFO     | __main__:116 | Catalog ready: 160 rows (unique batches/products).
+2025-09-18 11:41:14 | INFO     | __main__:121 | Sales curated ready: 1932 rows.
+2025-09-18 11:41:14 | INFO     | __main__:124 | 📈 Running incremental forecasting for 30 days...
+2025-09-18 11:41:14 | INFO     | utils.logger:125 |  Running product-level forecasting for 30 days...
+2025-09-18 11:41:14 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:14 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:14 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:14 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:14 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:14 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:14 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:14 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:15 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:15 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:15 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:15 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:15 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:15 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:15 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:16 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:16 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:16 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:16 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:16 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:16 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:16 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:16 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:17 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:17 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:17 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:17 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:17 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:17 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:18 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:18 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:18 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:18 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:18 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:18 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 11:41:18 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:19 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:19 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:19 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:19 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:19 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:19 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:19 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:20 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:20 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:20 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:20 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:20 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:21 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:21 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 11:41:21 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 11:41:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 11:41:21 | INFO     | utils.logger:216 |  Forecasting completed. Inserted 988 new forecast rows.
+2025-09-18 11:41:21 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (988 rows).
+2025-09-18 11:41:21 | INFO     | __main__:138 | ✅ Pipeline finished successfully.
+2025-09-18 12:01:19 | INFO     | __main__:103 | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + JSON)
+2025-09-18 12:01:19 | INFO     | __main__:110 | 🔧 Running ETL pipeline...
+2025-09-18 12:01:19 | INFO     | utils.logger:253 | Loaded tables counts: production=220, inventory=220, sales=2662, factory=220, logistics=992
+2025-09-18 12:01:19 | INFO     | utils.logger:274 | Saved catalog curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (220 rows)
+2025-09-18 12:01:19 | INFO     | utils.logger:373 | Saved sales curated to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (2662 rows)
+2025-09-18 12:01:19 | INFO     | __main__:116 | Catalog ready: 220 rows (unique batches/products).
+2025-09-18 12:01:19 | INFO     | __main__:121 | Sales curated ready: 2662 rows.
+2025-09-18 12:01:19 | INFO     | __main__:124 | 📈 Running incremental forecasting for 30 days...
+2025-09-18 12:01:19 | INFO     | utils.logger:125 |  Running product-level forecasting for 30 days...
+2025-09-18 12:01:19 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:19 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:19 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:20 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:20 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:21 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:21 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:22 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:22 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:23 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:23 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:24 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:24 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:25 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:25 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:26 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:26 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:26 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:26 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:26 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:27 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:27 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 24.
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:27 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:27 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:27 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:28 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:28 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:28 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:29 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:29 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:29 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:29 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:30 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:30 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:30 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:30 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:31 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:31 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:31 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:31 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:31 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:32 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:32 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:32 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:32 | INFO     | prophet:964 | Disabling yearly seasonality. Run prophet with yearly_seasonality=True to override this.
+2025-09-18 12:01:32 | INFO     | prophet:434 | n_changepoints greater than number of observations. Using 23.
+2025-09-18 12:01:32 | INFO     | cmdstanpy:2058 | Chain [1] start processing
+2025-09-18 12:01:33 | INFO     | cmdstanpy:2115 | Chain [1] done processing
+2025-09-18 12:01:33 | INFO     | utils.logger:216 |  Forecasting completed. Inserted 700 new forecast rows.
+2025-09-18 12:01:33 | INFO     | __main__:136 | 💾 Dashboard JSON saved to C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json (700 rows).
+2025-09-18 12:01:33 | INFO     | __main__:138 | ✅ Pipeline finished successfully.

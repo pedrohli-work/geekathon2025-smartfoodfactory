@@ -1,0 +1,77 @@
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + Dashboard JSON)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Starting ETL pipeline...
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Loaded table milk_production_base with shape (100, 7)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Loaded table milk_inventory with shape (100, 10)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Loaded table milk_sales with shape (9184, 8)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Loaded table milk_factory with shape (100, 9)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Loaded table milk_logistics with shape (452, 8)
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Catalog curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-17 14:00:00 | ERROR | SmartMilkFactory | Failed building integrated pipeline.
+Traceback (most recent call last):
+  File "C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\modules\etl.py", line 89, in build_integrated_pipeline
+    logistics_df[["batch_id", "product_id", "date", "transport_time_hours", "transport_temperature_c", "energy_consumption_kwh"]],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['date'] not in index"
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | ETL completed: 0 unique products, 0 sales records
+2025-09-17 14:00:00 | WARNING | SmartMilkFactory | No sales data available for forecasting.
+2025-09-17 14:00:00 | WARNING | SmartMilkFactory | No forecast results available.
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | Dashboard JSON saved successfully: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json
+2025-09-17 14:00:00 | INFO | SmartMilkFactory | ✅ Pipeline finished successfully.
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + Dashboard JSON)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Starting ETL pipeline...
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Loaded table milk_production_base with shape (100, 7)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Loaded table milk_inventory with shape (100, 10)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Loaded table milk_sales with shape (9184, 8)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Loaded table milk_factory with shape (100, 9)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Loaded table milk_logistics with shape (452, 8)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Catalog curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | Sales curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (9184 rows)
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | ETL completed: 100 unique products, 9184 sales records
+2025-09-17 14:23:01 | INFO | SmartMilkFactory | 🚀 Running incremental forecast pipeline...
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + Dashboard JSON)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Starting ETL pipeline...
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Loaded table milk_production_base with shape (100, 7)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Loaded table milk_inventory with shape (100, 10)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Loaded table milk_sales with shape (9184, 8)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Loaded table milk_factory with shape (100, 9)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Loaded table milk_logistics with shape (452, 8)
+2025-09-17 14:26:08 | INFO | SmartMilkFactory | Catalog curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-17 14:26:09 | INFO | SmartMilkFactory | Sales curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (9184 rows)
+2025-09-17 14:26:09 | INFO | SmartMilkFactory | ETL completed: 100 unique products, 9184 sales records
+2025-09-17 14:26:09 | INFO | SmartMilkFactory | 🚀 Running incremental forecast pipeline...
+2025-09-17 14:29:12 | INFO | SmartMilkFactory | ✅ Incremental forecast pipeline completed. 13860 new records inserted.
+2025-09-17 14:29:12 | INFO | SmartMilkFactory | Forecast completed for 13860 batch-product-store combinations
+2025-09-17 14:29:12 | INFO | SmartMilkFactory | Dashboard JSON saved successfully: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json
+2025-09-17 14:29:12 | INFO | SmartMilkFactory | ✅ Pipeline finished successfully.
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | 🚀 Starting Smart Milk Factory pipeline (ETL + Forecast + Dashboard JSON)
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Starting ETL pipeline...
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Loaded table milk_production_base with shape (100, 7)
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Loaded table milk_inventory with shape (100, 10)
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Loaded table milk_sales with shape (9184, 8)
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Loaded table milk_factory with shape (100, 9)
+2025-09-17 16:13:29 | INFO | SmartMilkFactory | Loaded table milk_logistics with shape (452, 8)
+2025-09-17 16:13:30 | INFO | SmartMilkFactory | Catalog curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-17 16:13:30 | INFO | SmartMilkFactory | Sales curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (9184 rows)
+2025-09-17 16:13:30 | INFO | SmartMilkFactory | ETL completed: 100 unique products, 9184 sales records
+2025-09-17 16:13:30 | INFO | SmartMilkFactory | 🚀 Running incremental forecast pipeline...
+2025-09-17 16:16:46 | INFO | SmartMilkFactory | ✅ Incremental forecast pipeline completed. 13860 new records inserted.
+2025-09-17 16:16:46 | INFO | SmartMilkFactory | Forecast completed for 13860 batch-product-store combinations
+2025-09-17 16:16:46 | INFO | SmartMilkFactory | Dashboard JSON saved successfully: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\dashboard_output.json
+2025-09-17 16:16:46 | INFO | SmartMilkFactory | ✅ Pipeline finished successfully.
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Loaded table milk_production_base with shape (100, 7)
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Loaded table milk_inventory with shape (100, 10)
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Loaded table milk_sales with shape (9184, 8)
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Loaded table milk_factory with shape (100, 9)
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Loaded table milk_logistics with shape (452, 8)
+2025-09-17 16:29:22 | INFO | SmartMilkFactory | Catalog curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\catalog_curated.parquet (100 rows)
+2025-09-17 16:29:23 | INFO | SmartMilkFactory | Sales curated saved: C:\Users\pedrohli\PEDRO\PROGRAMAÇÃO\Projects\MachineLearning\Geekathon2025\SmartMilkFactory\curated\sales_curated.parquet (9184 rows)
+2025-09-17 16:29:23 | INFO | SmartMilkFactory | 🚀 Running incremental forecast pipeline...
+2025-09-17 16:38:21 | INFO | SmartMilkFactory | ✅ Incremental forecast pipeline completed. 13860 new records inserted.

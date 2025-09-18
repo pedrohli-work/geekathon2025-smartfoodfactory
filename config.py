@@ -44,8 +44,8 @@ TABLE_FORECAST   = "milk_forecast"  # created by forecasting step
 FORECAST_PERIODS   = int(os.getenv("FORECAST_PERIODS", "30"))  # number of days to forecast
 MIN_HISTORY_DAYS   = int(os.getenv("MIN_HISTORY_DAYS", "30"))  # minimal historical span per group (days)
 PARALLEL_JOBS      = int(os.getenv("PARALLEL_JOBS", str(max(1, (os.cpu_count() or 2) // 2))))
-PROPHET_DAILY_SEASONALITY = bool(int(os.getenv("PROPHET_DAILY_SEASONALITY", "1")))
-
+# NEW: pick the model to use: "prophet", "ets", or "baseline"
+FORECAST_MODEL = os.getenv("FORECAST_MODEL", "ets").lower()
 # -----------------------------------------------------------------------------
 # Curated / Output datasets
 # -----------------------------------------------------------------------------

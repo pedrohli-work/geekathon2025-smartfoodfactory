@@ -4,6 +4,8 @@ import sys
 import subprocess
 from pathlib import Path
 from typing import Tuple, List, Dict, Optional
+from config import OUTPUT_JSON, CATALOG_CURATED, SALES_CURATED, DATABASE_FILE
+import shutil
 
 import numpy as np
 import pandas as pd
@@ -203,6 +205,81 @@ with c3:
         key="btn_new_data",
         width="stretch",
     )
+
+# --- Reset button (clears curated dir + DB + log + cache) ---
+reset_col, _ = st.columns([1, 3])
+if reset_col.button(
+    "🔄 Reset dashboard (clear data & cache)",
+    help="Deletes curated files and the local database, then clears cache.",
+    key="btn_reset",
+    type="secondary",
+    width="content",
+):
+    # (1) remove curated/ entirely (safer than deleting individual files)
+    try:
+        CURATED_DIR = OUTPUT_JSON.parent  # e.g., Path('curated')
+        if CURATED_DIR.exists():
+            shutil.rmtree(CURATED_DIR)
+    except Exception:
+        pass
+
+    # (2) delete DB and (optional) log file
+    try:
+        DATABASE_FILE.unlink(missing_ok=True)
+    except Exception:
+        pass
+    try:
+        Path(LOG_FILE).unlink(missing_ok=True)
+    except Exception:
+        pass
+
+    # (3) clear cached loaders + stage flags and rerun
+    try:
+        load_artifacts.clear()
+    except Exception:
+        pass
+    for k in ("stage_db", "stage_new", "stage_pipe"):
+        st.session_state.pop(k, None)
+
+    st.success("Dashboard reset. Click **Create database** and then **Run pipeline** to rebuild.")
+    st.rerun()
+
+# Simple stage flags  <-- o bloco de reset vem ANTES destas linhas
+for k in ("stage_db", "stage_new", "stage_pipe"):
+    if k not in st.session_state:
+        st.session_state[k] = False
+
+reset_col, _ = st.columns([1, 3])
+if reset_col.button(
+    "🔄 Reset dashboard (clear data & cache)",
+    help="Deletes curated files and the local database, then clears cache.",
+    key="btn_reset",
+    type="secondary",
+    width="content",
+):
+    # delete curated files
+    for p in [OUTPUT_JSON, CATALOG_CURATED, SALES_CURATED]:
+        try:
+            p.unlink(missing_ok=True)
+        except Exception:
+            pass
+
+    # delete db (prevents fallback from repopulating the JSON)
+    try:
+        DATABASE_FILE.unlink(missing_ok=True)
+    except Exception:
+        pass
+
+    # clear cached loaders + stage flags and rerun
+    try:
+        load_artifacts.clear()
+    except Exception:
+        pass
+    for k in ("stage_db", "stage_new", "stage_pipe"):
+        st.session_state.pop(k, None)
+
+    st.success("Dashboard reset. Click **Create database** and then **Run pipeline** to rebuild.")
+    st.rerun()
 
 # Simple stage flags
 for k in ("stage_db", "stage_new", "stage_pipe"):

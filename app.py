@@ -1,11 +1,12 @@
+# app.py — Clean keys, reset button, horizon filter, English UI
+
 import json
 import re
 import sys
+import shutil
 import subprocess
 from pathlib import Path
 from typing import Tuple, List, Dict, Optional
-from config import OUTPUT_JSON, CATALOG_CURATED, SALES_CURATED, DATABASE_FILE
-import shutil
 
 import numpy as np
 import pandas as pd
@@ -27,17 +28,17 @@ from config import (
 st.set_page_config(page_title="Smart Milk Factory", layout="wide")
 
 st.markdown("# 🥛 Smart Milk Factory")
-st.caption(
-    "Dashboard for demand, stock, shelf-life risk and sustainability"
-)
+st.caption("Dashboard for demand, stock, shelf-life risk and sustainability")
 
-st.markdown("""
+st.markdown(
+    """
 ### How to use
 1. **Create database** — initialize a fresh, realistic dataset (production, inventory, sales, factory, logistics).  
 2. **Run pipeline** — execute ETL + Forecast to produce KPIs and future demand.  
 3. **Generate new data** — simulate continuous operations by appending new batches/sales/logistics.  
 4. **Run pipeline again** — refresh curated data, KPIs and forecasts with the newly generated data.
-""")
+"""
+)
 
 # -----------------------------------------------------------------------------
 # Helpers
@@ -47,6 +48,7 @@ SYNTH_DIR = PROJECT_ROOT / "synthetic_data"
 PY = sys.executable  # ensure we call the venv Python
 
 def _tail(path: Path, n: int = 120) -> str:
+    """Return the last n lines of a log file (or placeholder)."""
     try:
         if path.exists():
             with open(path, "r", encoding="utf-8", errors="ignore") as f:
@@ -74,6 +76,7 @@ def load_artifacts() -> Tuple[pd.DataFrame, pd.DataFrame, List[Dict]]:
 
 
 def _thousands(x: float | int) -> str:
+    """Format number with thousands separator (no decimals)."""
     try:
         return f"{int(round(float(x))):,}"
     except Exception:
@@ -81,6 +84,7 @@ def _thousands(x: float | int) -> str:
 
 
 def _fmt_float(x: float, decimals: int = 1) -> str:
+    """Format float with fixed decimals and thousands separator."""
     try:
         return f"{float(x):,.{decimals}f}"
     except Exception:
@@ -100,8 +104,8 @@ def _ensure_df_forecast(forecast_list: List[Dict]) -> pd.DataFrame:
 
 def _build_product_map(catalog_df: pd.DataFrame) -> Dict[int, str]:
     """
-    product_id -> product_type (deduplicated). If a product has multiple types in historical data,
-    pick the mode; fall back to the first observed.
+    Build product_id -> product_type (deduplicated). If a product has multiple types in
+    historical data, pick the mode; fall back to the first observed.
     """
     if catalog_df.empty or "product_id" not in catalog_df.columns or "product_type" not in catalog_df.columns:
         return {}
@@ -169,6 +173,7 @@ def _run_status(label: str, cmd: list[str], success_label: str = "Completed") ->
 
 
 def _run_pipeline_with_status() -> bool:
+    """Call main.py with the same Python executable used by the app."""
     return _run_status("Running ETL + Forecast", [PY, "main.py"], success_label="Data ready")
 
 
@@ -181,41 +186,45 @@ def _restrict_horizon(df: pd.DataFrame, date_col: str, days: int) -> pd.DataFram
     return df[(pd.to_datetime(df[date_col]) >= dmin) & (pd.to_datetime(df[date_col]) <= dend)].copy()
 
 # -----------------------------------------------------------------------------
-# Controls (no sidebar)
+# Controls (no sidebar) — unique keys + single reset block
 # -----------------------------------------------------------------------------
+KEY_CREATE = "ctrl_create_db"
+KEY_RUN    = "ctrl_run_pipeline"
+KEY_NEW    = "ctrl_new_data"
+KEY_RESET  = "ctrl_reset_dashboard_v2"  # unique key
+
 c1, c2, c3 = st.columns([1, 1, 1])
 with c1:
     create_clicked = st.button(
         "🧱 Create database",
         help="Builds a fresh realistic SQLite with all base tables.",
-        key="btn_create_db",
+        key=KEY_CREATE,
         width="stretch",
     )
 with c2:
     run_clicked = st.button(
         "📈 Run pipeline",
         help="Runs ETL + Forecast. Tip: after generating new data, run the pipeline again.",
-        key="btn_run_pipeline",
+        key=KEY_RUN,
         width="stretch",
     )
 with c3:
     new_clicked = st.button(
         "➕ Generate new data",
         help="Appends new batches/sales/logistics to simulate continuous operations.",
-        key="btn_new_data",
+        key=KEY_NEW,
         width="stretch",
     )
 
-# --- Reset button (clears curated dir + DB + log + cache) ---
 reset_col, _ = st.columns([1, 3])
 if reset_col.button(
     "🔄 Reset dashboard (clear data & cache)",
     help="Deletes curated files and the local database, then clears cache.",
-    key="btn_reset",
+    key=KEY_RESET,
     type="secondary",
     width="content",
 ):
-    # (1) remove curated/ entirely (safer than deleting individual files)
+    # (1) remove entire curated/ directory
     try:
         CURATED_DIR = OUTPUT_JSON.parent  # e.g., Path('curated')
         if CURATED_DIR.exists():
@@ -244,44 +253,7 @@ if reset_col.button(
     st.success("Dashboard reset. Click **Create database** and then **Run pipeline** to rebuild.")
     st.rerun()
 
-# Simple stage flags  <-- o bloco de reset vem ANTES destas linhas
-for k in ("stage_db", "stage_new", "stage_pipe"):
-    if k not in st.session_state:
-        st.session_state[k] = False
-
-reset_col, _ = st.columns([1, 3])
-if reset_col.button(
-    "🔄 Reset dashboard (clear data & cache)",
-    help="Deletes curated files and the local database, then clears cache.",
-    key="btn_reset",
-    type="secondary",
-    width="content",
-):
-    # delete curated files
-    for p in [OUTPUT_JSON, CATALOG_CURATED, SALES_CURATED]:
-        try:
-            p.unlink(missing_ok=True)
-        except Exception:
-            pass
-
-    # delete db (prevents fallback from repopulating the JSON)
-    try:
-        DATABASE_FILE.unlink(missing_ok=True)
-    except Exception:
-        pass
-
-    # clear cached loaders + stage flags and rerun
-    try:
-        load_artifacts.clear()
-    except Exception:
-        pass
-    for k in ("stage_db", "stage_new", "stage_pipe"):
-        st.session_state.pop(k, None)
-
-    st.success("Dashboard reset. Click **Create database** and then **Run pipeline** to rebuild.")
-    st.rerun()
-
-# Simple stage flags
+# Initialize stage flags (once)
 for k in ("stage_db", "stage_new", "stage_pipe"):
     if k not in st.session_state:
         st.session_state[k] = False
@@ -294,7 +266,7 @@ if create_clicked:
         load_artifacts.clear()
 
 if new_clicked:
-    dyn_path = SYNTH_DIR / "datsets_sqlite_dynamic.py"  # your file name with 'datsets'
+    dyn_path = SYNTH_DIR / "datsets_sqlite_dynamic.py"  # your file named with 'datsets'
     ok = _run_status("Generating new data", [PY, str(dyn_path)], success_label="New data generated")
     if ok:
         st.session_state["stage_new"] = True
@@ -339,7 +311,6 @@ if not sales_curated_df.empty and "store_id" in sales_curated_df.columns:
     unique_stores = sorted({str(s) for s in sales_curated_df["store_id"].dropna().tolist()}, key=_store_natural_key)
     store_ids += unique_stores
 
-# Horizon options
 HORIZON_OPTIONS = {1: "1 day", 7: "7 days", 14: "14 days", 30: "30 days"}
 default_h = 14 if 14 in HORIZON_OPTIONS else list(HORIZON_OPTIONS.keys())[0]
 
@@ -361,7 +332,7 @@ horizon_days = colh.selectbox(
     options=list(HORIZON_OPTIONS.keys()),
     index=list(HORIZON_OPTIONS.keys()).index(default_h),
     format_func=lambda k: HORIZON_OPTIONS[k],
-    help="Aggregate KPIs and tables over the next N forecast days.",
+    help="Aggregate KPIs and charts over the next N forecast days.",
     key="h_sel",
 )
 
@@ -381,7 +352,7 @@ if selected_store is not None:
     if "store_id" in sc.columns:
         sc = sc[sc["store_id"].astype(str) == str(selected_store)]
 
-# Restrict forecast to the chosen horizon (from its earliest date)
+# Restrict forecast to the chosen horizon (from its earliest forecast date)
 fcw = _restrict_horizon(fc, "forecast_date", horizon_days)
 
 # -----------------------------------------------------------------------------
@@ -405,9 +376,7 @@ k4.metric("Current Available Stock (L)", _thousands(current_stock_l))
 # Demand vs. Projected Stock (respects horizon)
 # -----------------------------------------------------------------------------
 st.markdown("### Demand vs. Projected Stock")
-st.caption(
-    "Projected Stock (L) is derived from the latest available stock minus the running sum of the forecast window."
-)
+st.caption("Projected Stock (L) = last known stock − cumulative forecast (clipped at 0).")
 if not fcw.empty:
     # Forecast (future) within horizon
     fc_daily = fcw.groupby("forecast_date", as_index=False)["forecasted_sales"].sum()
@@ -435,7 +404,7 @@ else:
     st.info("Run the pipeline to generate forecasts and stock context for the selected horizon.")
 
 # -----------------------------------------------------------------------------
-# Batch Drill-down (bigger)
+# Batch Drill-down (bigger table)
 # -----------------------------------------------------------------------------
 st.markdown("### Batch Drill-down")
 st.caption("Lot-level operational details for the current selection (validity, stock, temperature, energy).")
@@ -492,14 +461,14 @@ if not sc.empty and {"product_id", "store_id", "days_to_expiration"}.issubset(sc
         np.where(risk["days_to_expiration"] <= 3, 1, 0)
     )
 
-    # 2) Risk per product
+    # 2) Worst risk per product × store
     agg = (
         risk.groupby(["product_id", "store_id"], as_index=False)["RiskScore"]
             .max()
             .rename(columns={"store_id": "Store"})
     )
 
-    # 3) Lables
+    # 3) Labels and ordering
     def _prod_name(pid: int) -> str:
         return product_map.get(int(pid), f"Product {int(pid)}").title()
 
@@ -510,14 +479,14 @@ if not sc.empty and {"product_id", "store_id", "days_to_expiration"}.issubset(sc
     prod_order_df = agg[["product_id", "Product"]].drop_duplicates().sort_values("product_id")
     product_order = prod_order_df["Product"].tolist()
 
-    # 4) Pivot heatmap (lines=product, columns=store)
+    # 4) Pivot heatmap (rows=product, columns=store)
     heat = (
         agg.pivot(index="Product", columns="Store", values="RiskScore")
            .reindex(index=product_order, columns=store_order)
            .fillna(0)
     )
 
-    # 5) Heatmap scale Low/Medium/High
+    # 5) Heatmap Low/Medium/High
     fig = px.imshow(
         heat,
         color_continuous_scale=["#b3ffb3", "#ffeb99", "#ff4d4d"],  # Low / Medium / High
@@ -553,9 +522,10 @@ if not fcw.empty:
         "suggested_production": "Suggested Production (L/day)"
     }, inplace=True)
     planner["Date"] = pd.to_datetime(planner["Date"]).dt.date
-    # human-friendly product label
+
     def _prod_lbl(pid: int) -> str:
         return _product_label(int(pid), product_map)
+
     planner["Product"] = planner["Product"].astype(int).map(_prod_lbl)
     planner["Store"] = planner["Store"].astype(str)
     st.dataframe(planner.sort_values(["Date", "Product", "Store"]), width="stretch", height=420)

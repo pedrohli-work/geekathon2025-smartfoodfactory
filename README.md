@@ -108,6 +108,35 @@ statsmodels>=0.14
 
 Prophet is not required—forecasting uses ETS (statsmodels).
 
+🚀 Quickstart (local)
+# 1) Clone
+git clone https://github.com/<your-user>/<your-repo>.git
+cd <your-repo>
+
+# 2) Create & activate venv
+python -m venv venv
+# Windows: venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# 3) Install deps
+pip install -r requirements.txt
+
+# 4) (Optional) Configure knobs
+#   Edit config.py — e.g. FORECAST_PERIODS=30, LOG_FILE path, etc.
+
+# 5) Create database & seed data
+python synthetic_data/datasets_sqlite.py
+
+# 6) Run pipeline once (ETL + Forecast + JSON)
+python main.py
+
+# 7) Launch the dashboard
+streamlit run app.py
+
+
+In the app, you can also:
+
 Create database (rebuilds fresh schema/data)
 
 Generate new data (append rows)

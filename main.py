@@ -19,6 +19,7 @@ from config import (
     DATABASE_FILE,
     OUTPUT_JSON,
     FORECAST_PERIODS,
+    FORECAST_MODEL,  # <-- só para logar o modelo escolhido
 )
 from modules.etl import build_integrated_pipeline
 from modules.forecasting import run_incremental_forecast
@@ -81,7 +82,6 @@ def _load_recent_forecasts_from_db(horizon_days: int) -> List[Dict]:
     today = pd.Timestamp.today().normalize()
     future = df[df["forecast_date"] >= today].copy()
     if not future.empty:
-        # keep only the next <horizon_days> days
         max_date = future["forecast_date"].min() + pd.Timedelta(days=horizon_days - 1)
         future = future[future["forecast_date"] <= max_date]
         logger.info("Using fallback: %d future forecast rows from DB.", len(future))
@@ -121,7 +121,7 @@ def main() -> Tuple[pd.DataFrame, pd.DataFrame, List[Dict]]:
             logger.info("Sales curated ready: %d rows.", len(sales_curated_df))
 
     # 2) Forecast (incremental insert)
-    logger.info("📈 Running incremental forecasting for %d days...", FORECAST_PERIODS)
+    logger.info("📈 Running incremental forecasting for %d days (model=%s)...", FORECAST_PERIODS, FORECAST_MODEL)
     forecast_results = run_incremental_forecast(sales_curated_df, forecast_days=FORECAST_PERIODS)
 
     # 2b) Fallback: if nothing new was inserted/predicted, load existing forecasts for the next horizon
